@@ -7,10 +7,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { EditNote, Tag } from '@mui/icons-material';
-import { Divider, InputAdornment, MenuItem, Typography } from '@mui/material';
+import { Divider, Fab, InputAdornment, MenuItem, Typography } from '@mui/material';
 import CalendarTime from './CalendarTime';
 
-
+//Implement Combo Box for tags
 const priorities = [
   {
     value: 'High',
@@ -39,10 +39,10 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <Button variant="contained" sx={{color:'info'}}onClick={handleClickOpen}>
+      <Fab color="info" variant="extended" onClick={handleClickOpen}>
       <EditNote sx={{ mr: 1 }} />
         <Typography>New Task</Typography>
-      </Button>
+      </Fab>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -97,6 +97,7 @@ export default function FormDialog() {
             </MenuItem>
           ))}
         </TextField>
+        
         <TextField
         id="Tags"
         label="Tags"
@@ -107,7 +108,7 @@ export default function FormDialog() {
             </InputAdornment>
           ),
         }}
-        variant="standard"
+        variant="filled"
         fullWidth
       />
         </DialogContent>

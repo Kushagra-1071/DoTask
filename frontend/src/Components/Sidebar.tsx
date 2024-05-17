@@ -13,85 +13,55 @@ import ListItemText from '@mui/material/ListItemText';
 import { CalendarToday, Dashboard, Group, Logout, PieChart } from '@mui/icons-material';
 import Header from './Header';
 
-const drawerWidth = 240;
+
 
 export default function Sidebar() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, backgroundColor: '#FFFFFF'}}
-      >
-        <Toolbar>
-          <Header />
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Toolbar />
-        <Divider />
-        <List>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Dashboard/>
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <CalendarToday/>
-                </ListItemIcon>
-                <ListItemText primary="Calendar View" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Group/>
-                </ListItemIcon>
-                <ListItemText primary="Team" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <PieChart/>
-                </ListItemIcon>
-                <ListItemText primary="Analytics" />
-              </ListItemButton>
-            </ListItem>
-            <Divider />
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Logout/>
-                </ListItemIcon>
-                <ListItemText primary="Logout" />
-              </ListItemButton>
-            </ListItem>  
-        </List>
-        <Divider />
-      </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-      >
-        <Toolbar />
-      </Box>
-    </Box>
+    <Box flex={1}
+    p={2}>
+    <List>
+    <ListItem disablePadding>
+      <ListItemButton>
+        <ListItemIcon>
+          <Dashboard/>
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItemButton>
+    </ListItem>
+    <ListItem disablePadding>
+      <ListItemButton>
+        <ListItemIcon>
+          <CalendarToday/>
+        </ListItemIcon>
+        <ListItemText primary="Calendar View" />
+      </ListItemButton>
+    </ListItem>
+    <ListItem disablePadding>
+      <ListItemButton>
+        <ListItemIcon>
+          <Group/>
+        </ListItemIcon>
+        <ListItemText primary="Team" />
+      </ListItemButton>
+    </ListItem>
+    <ListItem disablePadding>
+      <ListItemButton>
+        <ListItemIcon>
+          <PieChart/>
+        </ListItemIcon>
+        <ListItemText primary="Analytics" />
+      </ListItemButton>
+    </ListItem>
+    <Divider />
+    <ListItem disablePadding>
+      <ListItemButton>
+        <ListItemIcon>
+          <Logout/>
+        </ListItemIcon>
+        <ListItemText primary="Logout" />
+      </ListItemButton>
+    </ListItem>  
+</List>
+</Box>
   );
 }

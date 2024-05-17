@@ -9,29 +9,17 @@ import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { AvatarGroup, Button, Menu, MenuItem } from '@mui/material';
+import { AvatarGroup, Box, Button, Menu, MenuItem } from '@mui/material';
 import { AccessTime, ChevronRight, Delete, Edit } from '@mui/icons-material';
 import ProgressBar from './ProgressBar';
 
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
+
 interface BoardProps
 {
     title: string;
     content: string;
 }
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export default function BoardCard(props: BoardProps) {
   const [expanded, setExpanded] = React.useState(false);
@@ -50,7 +38,8 @@ const handleClose=() =>
         setAnchorEl(null);
     };
   return (
-    <Card sx={{ maxWidth: 350, m:5, ml:32}}>
+    <Box flex={4}>
+    <Card sx={{ maxWidth: 345}}>
       <CardHeader
         action={
           <IconButton aria-label="settings" onClick={onVertIconClick}>
@@ -90,5 +79,6 @@ const handleClose=() =>
       </CardActions>
       
     </Card>
+    </Box>
   );
 }
